@@ -3,7 +3,7 @@ import NoteContext from "./noteContext";
 
 const NoteState = (props) => {
   const initialNotes = [];
-
+  const port = process.env.PORT || "http://localhost:5000";
   const [alert, setAlert] = useState(null);
   const [notes, setNotes] = useState(initialNotes);
   const [show, setShow] = useState(false);
@@ -28,7 +28,7 @@ const NoteState = (props) => {
   //fetches notes from the backend
   const fetchNotes = async () => {
     try {
-      const response = await fetch(`/api/notes/fetchallnotes`, {
+      const response = await fetch(`${port}/api/notes/fetchallnotes`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -47,7 +47,7 @@ const NoteState = (props) => {
   const addNoteDB = async (note) => {
     //API call
     try {
-      const response = await fetch(`/api/notes/addnote`, {
+      const response = await fetch(`${port}/api/notes/addnote`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -73,7 +73,7 @@ const NoteState = (props) => {
   const updateNoteDB = async (updatedNote) => {
     //API call
     try {
-      const response = await fetch(`/api/notes/updatenote/${updatedNote.id}`, {
+      const response = await fetch(`${port}/api/notes/updatenote/${updatedNote.id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -99,7 +99,7 @@ const NoteState = (props) => {
   const deleteNoteDB = async (id) => {
     //API call
     try {
-      const response = await fetch(`/api/notes/deletenote/${id}`, {
+      const response = await fetch(`${port}/api/notes/deletenote/${id}`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",

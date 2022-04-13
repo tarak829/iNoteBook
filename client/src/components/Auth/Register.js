@@ -27,6 +27,7 @@ function Copyright(props) {
 const theme = createTheme();
 
 const SignUp = () => {
+  const port = process.env.PORT || "http://localhost:5000";
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -43,7 +44,7 @@ const SignUp = () => {
       return;
     }
     try {
-      const response = await fetch(`/api/auth/register`, {
+      const response = await fetch(`${port}/api/auth/register`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

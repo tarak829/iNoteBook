@@ -26,6 +26,7 @@ function Copyright(props) {
 const theme = createTheme();
 
 const SignIn = () => {
+  const port = process.env.PORT || "http://localhost:5000";
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { showAlert, setIsLoggedIn } = useContext(NoteContext);
@@ -34,7 +35,7 @@ const SignIn = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(`/api/auth/login`, {
+      const response = await fetch(`${port}/api/auth/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
