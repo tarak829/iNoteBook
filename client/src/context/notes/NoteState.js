@@ -36,7 +36,7 @@ const NoteState = (props) => {
         },
       });
       const json = await response.json();
-      console.log(json);
+      // console.log(json);
       setNotes(json);
     } catch (error) {
       console.log(error);
@@ -56,7 +56,7 @@ const NoteState = (props) => {
         body: JSON.stringify(note),
       });
       const json = await response.json();
-      console.log(json);
+      // console.log(json);
       if (json.errors) {
         showAlert("danger", json.errors[0].msg);
       } else {
@@ -82,7 +82,7 @@ const NoteState = (props) => {
         body: JSON.stringify({ title: updatedNote.etitle, content: updatedNote.econtent }),
       });
       const json = await response.json();
-      console.log(json);
+      // console.log(json);
       if (json.errors) {
         showAlert("danger", json.errors[0].msg);
       } else {
@@ -107,7 +107,7 @@ const NoteState = (props) => {
         },
       });
       const json = await response.json();
-      console.log(json);
+      // console.log(json);
       setNotes(notes.filter((note) => note._id !== id));
     } catch (error) {
       console.log(error);

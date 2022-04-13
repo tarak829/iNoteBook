@@ -51,7 +51,7 @@ const SignUp = () => {
         body: JSON.stringify({ email, password, firstname, lastname }),
       });
       const json = await response.json();
-      console.log(json);
+      // console.log(json);
       if (json.success) {
         localStorage.setItem("token", json.token);
         setIsLoggedIn(true);
