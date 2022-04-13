@@ -7,7 +7,7 @@ const NoteState = (props) => {
   const [alert, setAlert] = useState(null);
   const [notes, setNotes] = useState(initialNotes);
   const [show, setShow] = useState(false);
-  const [isloggedIn, setIsLoggedIn] = useState(false);
+  const [isloggedIn, setIsLoggedIn] = useState(localStorage.getItem("token") ? true : false);
   const [note, addNote] = useState({
     title: "",
     content: "",
